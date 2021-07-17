@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ProblemB
 {
@@ -18,13 +17,6 @@ namespace ProblemB
             }
         }
 
-        static List<string> Append(List<string> list, string value)
-        {
-            list.Add(value);
-            return list;
-        }
-        
-
         static void Main(string[] args)
         {
             string[] parameters = Console.ReadLine().Split(' ');
@@ -40,11 +32,13 @@ namespace ProblemB
 
                 List<string> child = new List<string>();
                 child.Add(input[0]);
-
+                
+                /*Append*/
                 if (parents.ContainsKey(input[1]))
                 {
-                    parents[input[1]]=Append(parents[input[1]], input[0]);
+                    parents[input[1]].Add(input[0]);
                 }
+                /*Add*/
                 else
                 {
                     parents.Add(input[1], child);
@@ -52,7 +46,7 @@ namespace ProblemB
 
                 if (parents.ContainsKey(input[2]))
                 {
-                    parents[input[1]] = Append(parents[input[1]], input[0]);
+                    parents[input[2]].Add(input[0]);
                 }
                 else
                 {
@@ -106,7 +100,6 @@ namespace ProblemB
                 {
                     heir = new Person(name, record[name]);
                 }
-               
             }
             Console.WriteLine(heir.Name);
         }
