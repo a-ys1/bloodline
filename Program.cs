@@ -93,7 +93,7 @@ namespace ProblemB
             }
 
             /*Compare with other claimants*/
-            for (int i = 1; i < nOfClaimants-1; i++)
+            for (int i = 1; i < nOfClaimants; i++)
             {
                 string name = Console.ReadLine();
                 if (record.ContainsKey(name) && record[name] >= heir.Percentage)
